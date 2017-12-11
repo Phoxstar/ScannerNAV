@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface" xmlns="http://www.w3.org/2001/XMLSchema">
+      <complexType name="default_response">
+        <sequence>
+          <element minOccurs="1" maxOccurs="1" name="status" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="status_text" type="string" />
+        </sequence>
+      </complexType>
+      <complexType name="default_root" mixed="true">
+        <sequence>
+          <element minOccurs="1" maxOccurs="unbounded" name="default_response" type="tns:default_response" />
+        </sequence>
+      </complexType>
+      <element name="default_root" type="tns:default_root" />
+    </schema>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface" xmlns="http://www.w3.org/2001/XMLSchema">
+      <complexType name="resource">
+        <sequence>
+          <element minOccurs="1" maxOccurs="1" name="no" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="name" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="distno" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="pickall" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="zone" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="printergroup" type="string" />
+        </sequence>
+      </complexType>
+      <complexType name="resource_response">
+        <sequence>
+          <element minOccurs="1" maxOccurs="1" name="status" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="status_text" type="string" />
+          <element minOccurs="1" maxOccurs="unbounded" name="resource" type="tns:resource" />
+        </sequence>
+      </complexType>
+      <complexType name="resource_root" mixed="true">
+        <sequence>
+          <element minOccurs="1" maxOccurs="unbounded" name="resource_response" type="tns:resource_response" />
+        </sequence>
+      </complexType>
+      <element name="resource_root" type="tns:resource_root" />
+    </schema>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface" xmlns="http://www.w3.org/2001/XMLSchema">
+      <complexType name="printer_group">
+        <sequence>
+          <element minOccurs="1" maxOccurs="1" name="printer_no" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="printer_desc" type="string" />
+        </sequence>
+      </complexType>
+      <complexType name="printergroup_response">
+        <sequence>
+          <element minOccurs="1" maxOccurs="1" name="status" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="status_text" type="string" />
+          <element minOccurs="1" maxOccurs="unbounded" name="printer_group" type="tns:printer_group" />
+        </sequence>
+      </complexType>
+      <complexType name="printergroup_root" mixed="true">
+        <sequence>
+          <element minOccurs="1" maxOccurs="unbounded" name="printergroup_response" type="tns:printergroup_response" />
+        </sequence>
+      </complexType>
+      <element name="printergroup_root" type="tns:printergroup_root" />
+    </schema>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface" xmlns="http://www.w3.org/2001/XMLSchema">
+      <complexType name="zone">
+        <sequence>
+          <element minOccurs="1" maxOccurs="1" name="zone_code" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="zone_desc" type="string" />
+        </sequence>
+      </complexType>
+      <complexType name="zone_response">
+        <sequence>
+          <element minOccurs="1" maxOccurs="1" name="status" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="status_text" type="string" />
+          <element minOccurs="1" maxOccurs="unbounded" name="zone" type="tns:zone" />
+        </sequence>
+      </complexType>
+      <complexType name="zone_root" mixed="true">
+        <sequence>
+          <element minOccurs="1" maxOccurs="unbounded" name="zone_response" type="tns:zone_response" />
+        </sequence>
+      </complexType>
+      <element name="zone_root" type="tns:zone_root" />
+    </schema>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface" xmlns="http://www.w3.org/2001/XMLSchema">
+      <complexType name="wraptype">
+        <sequence>
+          <element minOccurs="1" maxOccurs="1" default="0" name="wraptype_entryno" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="wraptype_desc" type="string" />
+        </sequence>
+      </complexType>
+      <complexType name="wraptype_response">
+        <sequence>
+          <element minOccurs="1" maxOccurs="1" name="status" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="status_text" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="default_wraptype" type="string" />
+          <element minOccurs="1" maxOccurs="unbounded" name="wraptype" type="tns:wraptype" />
+        </sequence>
+      </complexType>
+      <complexType name="wraptype_root" mixed="true">
+        <sequence>
+          <element minOccurs="1" maxOccurs="unbounded" name="wraptype_response" type="tns:wraptype_response" />
+        </sequence>
+      </complexType>
+      <element name="wraptype_root" type="tns:wraptype_root" />
+    </schema>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="CountPallet">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:default_root" />
+            <element minOccurs="1" maxOccurs="1" name="resourceNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="palletID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="bin" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CountPallet_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:default_root" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetResources">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:resource_root" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetResources_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:resource_root" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetResourcesInfo">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:resource_root" />
+            <element minOccurs="1" maxOccurs="1" name="resourceNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetResourcesInfo_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:resource_root" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetPrinterGroup">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:printergroup_root" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetPrinterGroup_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:printergroup_root" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetZone">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:zone_root" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetZone_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:zone_root" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Login">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:default_root" />
+            <element minOccurs="1" maxOccurs="1" name="resourceNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="pIN" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Login_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:default_root" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="MovePallet">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:default_root" />
+            <element minOccurs="1" maxOccurs="1" name="resourceNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="palletID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="newBin" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="MovePallet_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:default_root" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SetResourcesInfo">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:default_root" />
+            <element minOccurs="1" maxOccurs="1" name="resourceNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="pickAll" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="zone" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="printergorup" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SetResourcesInfo_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:default_root" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="WrapPallet">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:wraptype_root" />
+            <element minOccurs="1" maxOccurs="1" name="resourceNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="palletID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="wrapStartTxt" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="doPrint" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="wrapTypeTxt" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="WrapPallet_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:wraptype_root" />
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="CountPallet">
+    <part name="parameters" element="tns:CountPallet" />
+  </message>
+  <message name="CountPallet_Result">
+    <part name="parameters" element="tns:CountPallet_Result" />
+  </message>
+  <message name="GetResources">
+    <part name="parameters" element="tns:GetResources" />
+  </message>
+  <message name="GetResources_Result">
+    <part name="parameters" element="tns:GetResources_Result" />
+  </message>
+  <message name="GetResourcesInfo">
+    <part name="parameters" element="tns:GetResourcesInfo" />
+  </message>
+  <message name="GetResourcesInfo_Result">
+    <part name="parameters" element="tns:GetResourcesInfo_Result" />
+  </message>
+  <message name="GetPrinterGroup">
+    <part name="parameters" element="tns:GetPrinterGroup" />
+  </message>
+  <message name="GetPrinterGroup_Result">
+    <part name="parameters" element="tns:GetPrinterGroup_Result" />
+  </message>
+  <message name="GetZone">
+    <part name="parameters" element="tns:GetZone" />
+  </message>
+  <message name="GetZone_Result">
+    <part name="parameters" element="tns:GetZone_Result" />
+  </message>
+  <message name="Login">
+    <part name="parameters" element="tns:Login" />
+  </message>
+  <message name="Login_Result">
+    <part name="parameters" element="tns:Login_Result" />
+  </message>
+  <message name="MovePallet">
+    <part name="parameters" element="tns:MovePallet" />
+  </message>
+  <message name="MovePallet_Result">
+    <part name="parameters" element="tns:MovePallet_Result" />
+  </message>
+  <message name="SetResourcesInfo">
+    <part name="parameters" element="tns:SetResourcesInfo" />
+  </message>
+  <message name="SetResourcesInfo_Result">
+    <part name="parameters" element="tns:SetResourcesInfo_Result" />
+  </message>
+  <message name="WrapPallet">
+    <part name="parameters" element="tns:WrapPallet" />
+  </message>
+  <message name="WrapPallet_Result">
+    <part name="parameters" element="tns:WrapPallet_Result" />
+  </message>
+  <portType name="ScannerInterface_Port">
+    <operation name="CountPallet">
+      <input name="CountPallet" message="tns:CountPallet" />
+      <output name="CountPallet_Result" message="tns:CountPallet_Result" />
+    </operation>
+    <operation name="GetResources">
+      <input name="GetResources" message="tns:GetResources" />
+      <output name="GetResources_Result" message="tns:GetResources_Result" />
+    </operation>
+    <operation name="GetResourcesInfo">
+      <input name="GetResourcesInfo" message="tns:GetResourcesInfo" />
+      <output name="GetResourcesInfo_Result" message="tns:GetResourcesInfo_Result" />
+    </operation>
+    <operation name="GetPrinterGroup">
+      <input name="GetPrinterGroup" message="tns:GetPrinterGroup" />
+      <output name="GetPrinterGroup_Result" message="tns:GetPrinterGroup_Result" />
+    </operation>
+    <operation name="GetZone">
+      <input name="GetZone" message="tns:GetZone" />
+      <output name="GetZone_Result" message="tns:GetZone_Result" />
+    </operation>
+    <operation name="Login">
+      <input name="Login" message="tns:Login" />
+      <output name="Login_Result" message="tns:Login_Result" />
+    </operation>
+    <operation name="MovePallet">
+      <input name="MovePallet" message="tns:MovePallet" />
+      <output name="MovePallet_Result" message="tns:MovePallet_Result" />
+    </operation>
+    <operation name="SetResourcesInfo">
+      <input name="SetResourcesInfo" message="tns:SetResourcesInfo" />
+      <output name="SetResourcesInfo_Result" message="tns:SetResourcesInfo_Result" />
+    </operation>
+    <operation name="WrapPallet">
+      <input name="WrapPallet" message="tns:WrapPallet" />
+      <output name="WrapPallet_Result" message="tns:WrapPallet_Result" />
+    </operation>
+  </portType>
+  <binding name="ScannerInterface_Binding" type="tns:ScannerInterface_Port">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="CountPallet">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface:CountPallet" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CountPallet">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CountPallet_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetResources">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface:GetResources" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetResources">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetResources_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetResourcesInfo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface:GetResourcesInfo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetResourcesInfo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetResourcesInfo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetPrinterGroup">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface:GetPrinterGroup" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetPrinterGroup">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetPrinterGroup_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetZone">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface:GetZone" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetZone">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetZone_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Login">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface:Login" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Login">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Login_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="MovePallet">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface:MovePallet" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="MovePallet">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="MovePallet_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="SetResourcesInfo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface:SetResourcesInfo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="SetResourcesInfo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="SetResourcesInfo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="WrapPallet">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface:WrapPallet" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="WrapPallet">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="WrapPallet_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="ScannerInterface">
+    <port name="ScannerInterface_Port" binding="tns:ScannerInterface_Binding">
+      <address location="http://10.100.3.63:7147/OPC/WS/OPC/Codeunit/ScannerInterface" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>

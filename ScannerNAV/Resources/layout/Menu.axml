@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:weightSum="7">
+  <Button
+    android:text="Pick Order"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:id="@+id/btnPickOrder" />
+  <Button
+    android:text="Create Pallet"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:id="@+id/btnCreatePallet" />
+  <Button
+    android:text="Move Pallet"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:id="@+id/btnMovePallet" />
+  <Button
+    android:text="Wrap Pallet"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:id="@+id/btnWrapPallet" />
+  <Button
+    android:text="Count Pallet"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:id="@+id/btnCount" />
+  <Button
+    android:text="Print Pallet"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:id="@+id/btnPrintPallet" />
+  <Button
+    android:text="Loading Pallet"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:id="@+id/btnLoadingPallet" />
+  <Button
+    android:text="Other Functions"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:id="@+id/btnOtherFunctions" />
+  <TextView
+    android:textAppearance="?android:attr/textAppearanceMedium"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:id="@+id/tvStatus"
+    android:clickable="true"
+    android:gravity="fill" />
+</LinearLayout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+  <TextView
+    android:text="Pallet No."
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/tvPalletNo" />
+  <EditText
+    android:inputType="number"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/etPalletNo"
+    android:layout_marginBottom="10dp" />
+  <TextView
+    android:text="Bin"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/tvBin" />
+  <EditText
+    android:inputType="number"
+    android:layout_width="match_parent"
+    android:id="@+id/etBin"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:nextFocusDown="@+id/etPalletNo" />
+  <TextView
+    android:text="Print"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/textView1" />
+  <CheckBox
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/cbPrint"
+    android:layout_marginBottom="10dp" />
+  <TextView
+    android:text="Wrap Type"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/tvWrapType" />
+  <Spinner
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:id="@+id/spnWrapType"
+    android:layout_marginBottom="10dp" />
+  <ListView
+    android:layout_width="match_parent"
+    android:layout_height="0dip"
+    android:layout_weight="1"
+    android:id="@+id/listView1" />
+  <Button
+    android:text="Wrap"
+    android:textSize="20sp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/btnWrap"
+    android:layout_weight="0"
+    android:height="80dp" />
+  <TextView
+    android:textAppearance="?android:attr/textAppearanceMedium"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:id="@+id/tvStatus"
+    android:clickable="true"
+    android:gravity="fill" />
+</LinearLayout>

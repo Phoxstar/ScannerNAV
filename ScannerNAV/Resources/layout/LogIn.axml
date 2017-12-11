@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="User"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvResource" />
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/spnResource"
+        android:layout_marginBottom="10dp" />
+    <TextView
+        android:text="PIN-Code"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvPINLbl" />
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvPIN"
+        android:layout_marginBottom="10dp"
+        android:password="true"
+        android:numeric="integer"
+        android:maxLength="4" />
+    <ListView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:id="@+id/listView1"
+        android:layout_weight="1" />
+    <Button
+        android:text="Login"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:id="@+id/btnLogin"
+        android:layout_height="wrap_content"
+        android:height="80dp" />
+</LinearLayout>

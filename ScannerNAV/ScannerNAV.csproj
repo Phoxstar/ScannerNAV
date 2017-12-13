@@ -153,6 +153,9 @@
     <AndroidResource Include="Resources\layout\LogIn.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\CreatePallet.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <None Include="Web References\Webservice\default_root.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>

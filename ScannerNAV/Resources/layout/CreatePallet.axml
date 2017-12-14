@@ -17,6 +17,42 @@
         android:layout_height="wrap_content"
         android:id="@+id/etPalletNo"
         android:layout_marginBottom="10dp" />
+    <TextView
+        android:text="Content No."
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvContentNo" />
+    <EditText
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etContentNo"
+        android:layout_marginBottom="10dp" />
+    <TextView
+        android:text="Content Description"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvContentDescription" />
+    <EditText
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etContentDescription"
+        android:layout_marginBottom="10dp" />
+    <TextView
+        android:text="Quantity"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvQuantity" />
+    <EditText
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etQuantity"
+        android:layout_marginBottom="10dp" />
     <ListView
         android:layout_width="match_parent"
         android:layout_height="0dip"

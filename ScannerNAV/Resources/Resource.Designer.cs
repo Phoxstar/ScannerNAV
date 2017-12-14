@@ -66,143 +66,161 @@ namespace ScannerNAV
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f050013
+			public const int ImageViewLogo = 2131034131;
+			
+			// aapt resource value: 0x7f050018
+			public const int btnCount = 2131034136;
+			
 			// aapt resource value: 0x7f05000d
-			public const int ImageViewLogo = 2131034125;
+			public const int btnCreate = 2131034125;
+			
+			// aapt resource value: 0x7f050015
+			public const int btnCreatePallet = 2131034133;
+			
+			// aapt resource value: 0x7f05001a
+			public const int btnLoadingPallet = 2131034138;
 			
 			// aapt resource value: 0x7f050012
-			public const int btnCount = 2131034130;
-			
-			// aapt resource value: 0x7f050007
-			public const int btnCreate = 2131034119;
-			
-			// aapt resource value: 0x7f05000f
-			public const int btnCreatePallet = 2131034127;
-			
-			// aapt resource value: 0x7f050014
-			public const int btnLoadingPallet = 2131034132;
-			
-			// aapt resource value: 0x7f05000c
-			public const int btnLogin = 2131034124;
+			public const int btnLogin = 2131034130;
 			
 			// aapt resource value: 0x7f050005
 			public const int btnMove = 2131034117;
 			
-			// aapt resource value: 0x7f050010
-			public const int btnMovePallet = 2131034128;
+			// aapt resource value: 0x7f050016
+			public const int btnMovePallet = 2131034134;
 			
-			// aapt resource value: 0x7f050015
-			public const int btnOtherFunctions = 2131034133;
+			// aapt resource value: 0x7f05001b
+			public const int btnOtherFunctions = 2131034139;
 			
-			// aapt resource value: 0x7f05000e
-			public const int btnPickOrder = 2131034126;
+			// aapt resource value: 0x7f050014
+			public const int btnPickOrder = 2131034132;
 			
-			// aapt resource value: 0x7f050013
-			public const int btnPrintPallet = 2131034131;
+			// aapt resource value: 0x7f050019
+			public const int btnPrintPallet = 2131034137;
 			
-			// aapt resource value: 0x7f050022
-			public const int btnSave = 2131034146;
+			// aapt resource value: 0x7f050028
+			public const int btnSave = 2131034152;
 			
-			// aapt resource value: 0x7f05002d
-			public const int btnWrap = 2131034157;
+			// aapt resource value: 0x7f050033
+			public const int btnWrap = 2131034163;
 			
-			// aapt resource value: 0x7f050011
-			public const int btnWrapPallet = 2131034129;
+			// aapt resource value: 0x7f050017
+			public const int btnWrapPallet = 2131034135;
 			
-			// aapt resource value: 0x7f05002a
-			public const int cbPrint = 2131034154;
+			// aapt resource value: 0x7f050030
+			public const int cbPrint = 2131034160;
 			
-			// aapt resource value: 0x7f05001d
-			public const int cbShowAll = 2131034141;
+			// aapt resource value: 0x7f050023
+			public const int cbShowAll = 2131034147;
 			
 			// aapt resource value: 0x7f050003
 			public const int etBin = 2131034115;
 			
+			// aapt resource value: 0x7f05000a
+			public const int etContentDescription = 2131034122;
+			
+			// aapt resource value: 0x7f050008
+			public const int etContentNo = 2131034120;
+			
 			// aapt resource value: 0x7f050001
 			public const int etPalletNo = 2131034113;
 			
-			// aapt resource value: 0x7f050026
-			public const int etPassword = 2131034150;
+			// aapt resource value: 0x7f05002c
+			public const int etPassword = 2131034156;
 			
-			// aapt resource value: 0x7f050028
-			public const int etUrl = 2131034152;
+			// aapt resource value: 0x7f05000c
+			public const int etQuantity = 2131034124;
 			
-			// aapt resource value: 0x7f050024
-			public const int etUsername = 2131034148;
+			// aapt resource value: 0x7f05002e
+			public const int etUrl = 2131034158;
+			
+			// aapt resource value: 0x7f05002a
+			public const int etUsername = 2131034154;
 			
 			// aapt resource value: 0x7f050004
 			public const int listView1 = 2131034116;
 			
-			// aapt resource value: 0x7f050021
-			public const int spnPrinterGroup = 2131034145;
+			// aapt resource value: 0x7f050027
+			public const int spnPrinterGroup = 2131034151;
 			
-			// aapt resource value: 0x7f050009
-			public const int spnResource = 2131034121;
+			// aapt resource value: 0x7f05000f
+			public const int spnResource = 2131034127;
 			
-			// aapt resource value: 0x7f05002c
-			public const int spnWrapType = 2131034156;
+			// aapt resource value: 0x7f050032
+			public const int spnWrapType = 2131034162;
 			
-			// aapt resource value: 0x7f05001f
-			public const int spnZone = 2131034143;
+			// aapt resource value: 0x7f050025
+			public const int spnZone = 2131034149;
 			
-			// aapt resource value: 0x7f050029
-			public const int textView1 = 2131034153;
+			// aapt resource value: 0x7f05002f
+			public const int textView1 = 2131034159;
 			
 			// aapt resource value: 0x7f050002
 			public const int tvBin = 2131034114;
 			
-			// aapt resource value: 0x7f05001b
-			public const int tvDistNo = 2131034139;
+			// aapt resource value: 0x7f050009
+			public const int tvContentDescription = 2131034121;
 			
-			// aapt resource value: 0x7f05001a
-			public const int tvDistNoLbl = 2131034138;
+			// aapt resource value: 0x7f050007
+			public const int tvContentNo = 2131034119;
 			
-			// aapt resource value: 0x7f050019
-			public const int tvName = 2131034137;
+			// aapt resource value: 0x7f050021
+			public const int tvDistNo = 2131034145;
 			
-			// aapt resource value: 0x7f050018
-			public const int tvNameLbl = 2131034136;
+			// aapt resource value: 0x7f050020
+			public const int tvDistNoLbl = 2131034144;
 			
-			// aapt resource value: 0x7f05000b
-			public const int tvPIN = 2131034123;
+			// aapt resource value: 0x7f05001f
+			public const int tvName = 2131034143;
 			
-			// aapt resource value: 0x7f05000a
-			public const int tvPINLbl = 2131034122;
+			// aapt resource value: 0x7f05001e
+			public const int tvNameLbl = 2131034142;
+			
+			// aapt resource value: 0x7f050011
+			public const int tvPIN = 2131034129;
+			
+			// aapt resource value: 0x7f050010
+			public const int tvPINLbl = 2131034128;
 			
 			// aapt resource value: 0x7f050000
 			public const int tvPalletNo = 2131034112;
 			
-			// aapt resource value: 0x7f050025
-			public const int tvPassword = 2131034149;
+			// aapt resource value: 0x7f05002b
+			public const int tvPassword = 2131034155;
 			
-			// aapt resource value: 0x7f050020
-			public const int tvPrinterGroup = 2131034144;
+			// aapt resource value: 0x7f050026
+			public const int tvPrinterGroup = 2131034150;
 			
-			// aapt resource value: 0x7f050008
-			public const int tvResource = 2131034120;
+			// aapt resource value: 0x7f05000b
+			public const int tvQuantity = 2131034123;
 			
-			// aapt resource value: 0x7f050017
-			public const int tvResourceNo = 2131034135;
+			// aapt resource value: 0x7f05000e
+			public const int tvResource = 2131034126;
 			
-			// aapt resource value: 0x7f05001c
-			public const int tvShowAll = 2131034140;
+			// aapt resource value: 0x7f05001d
+			public const int tvResourceNo = 2131034141;
+			
+			// aapt resource value: 0x7f050022
+			public const int tvShowAll = 2131034146;
 			
 			// aapt resource value: 0x7f050006
 			public const int tvStatus = 2131034118;
 			
-			// aapt resource value: 0x7f050027
-			public const int tvUrl = 2131034151;
+			// aapt resource value: 0x7f05002d
+			public const int tvUrl = 2131034157;
 			
-			// aapt resource value: 0x7f050016
-			public const int tvUserIDLbl = 2131034134;
+			// aapt resource value: 0x7f05001c
+			public const int tvUserIDLbl = 2131034140;
 			
-			// aapt resource value: 0x7f050023
-			public const int tvUsername = 2131034147;
+			// aapt resource value: 0x7f050029
+			public const int tvUsername = 2131034153;
 			
-			// aapt resource value: 0x7f05002b
-			public const int tvWrapType = 2131034155;
+			// aapt resource value: 0x7f050031
+			public const int tvWrapType = 2131034161;
 			
-			// aapt resource value: 0x7f05001e
-			public const int tvZone = 2131034142;
+			// aapt resource value: 0x7f050024
+			public const int tvZone = 2131034148;
 			
 			static Id()
 			{

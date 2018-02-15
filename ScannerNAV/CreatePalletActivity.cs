@@ -5,8 +5,8 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using ScannerNAV.Webservice;
-
-
+using System.Collections.Generic;
+//using Android.Icu.Text;
 
 namespace ScannerNAV
 {
@@ -18,10 +18,11 @@ namespace ScannerNAV
         private TextView tvStatus;
         private TextView tvContentNo;
         private EditText etContentNo;
-        private TextView tvContentDescription;
-        private EditText etContentDescription;
+        private TextView tvContentType;
+        private Spinner spnContentType;
         private TextView tvQuantity;
         private EditText etQuantity;
+        
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -40,13 +41,45 @@ namespace ScannerNAV
             tvStatus = FindViewById<TextView>(Resource.Id.tvStatus);
             tvStatus.Click += OnStatusClick;
             tvStatus.Text = Helper.GetStatus();
+
+            etQuantity = FindViewById<EditText>(Resource.Id.etQuantity);
+            etQuantity.SetRawInputType(Android.Text.InputTypes.NumberFlagDecimal | Android.Text.InputTypes.ClassNumber);
+
+            spnContentType = FindViewById<Spinner>(Resource.Id.spnContentType);
+            spnContentType.SetSelection(1);
+            List<string> contentTypelist = new List<string>(new string[] { "Inner", "Outer"});
+            ArrayAdapter adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleSpinnerDropDownItem, contentTypelist);
+            spnContentType.Adapter = adapter;
         }
+
+
+
 
         private void OnCreateClick(object sender, EventArgs e)
         {
             try
             {
                 ScannerInterface ws = Helper.GetInterface(this);
+
+                default_root navResponse = new default_root();
+                
+                decimal decimal_qty = Decimal.Parse(etQuantity.Text);
+                ws.CreatePallet(ref navResponse, etPalletNo.Text, etContentNo.Text, decimal_qty);
+
+                default_response xmlResponse = navResponse.default_response[0];
+
+                if (Helper.IsOK(xmlResponse.status))
+                {
+                    Helper.ShowToast(this, xmlResponse.status_text);
+                    etPalletNo.Text = "";
+                    etContentNo.Text = "";
+                    etQuantity.Text = "";
+                    etPalletNo.RequestFocus();
+                 }
+                else
+                {
+                    Helper.ShowAlertDialog(this, xmlResponse.status, xmlResponse.status_text);
+                }
             }
             catch(Exception ex)
             {

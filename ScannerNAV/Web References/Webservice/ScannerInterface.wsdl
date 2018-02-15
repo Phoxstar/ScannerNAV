@@ -16,29 +16,25 @@
       <element name="default_root" type="tns:default_root" />
     </schema>
     <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface" xmlns="http://www.w3.org/2001/XMLSchema">
-      <complexType name="resource">
+      <complexType name="opcserver">
         <sequence>
-          <element minOccurs="1" maxOccurs="1" name="no" type="string" />
-          <element minOccurs="1" maxOccurs="1" name="name" type="string" />
-          <element minOccurs="1" maxOccurs="1" name="distno" type="string" />
-          <element minOccurs="1" maxOccurs="1" name="pickall" type="string" />
-          <element minOccurs="1" maxOccurs="1" name="zone" type="string" />
-          <element minOccurs="1" maxOccurs="1" name="printergroup" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="server_code" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="server_desc" type="string" />
         </sequence>
       </complexType>
-      <complexType name="resource_response">
+      <complexType name="opcserver_response">
         <sequence>
           <element minOccurs="1" maxOccurs="1" name="status" type="string" />
           <element minOccurs="1" maxOccurs="1" name="status_text" type="string" />
-          <element minOccurs="1" maxOccurs="unbounded" name="resource" type="tns:resource" />
+          <element minOccurs="1" maxOccurs="unbounded" name="opcserver" type="tns:opcserver" />
         </sequence>
       </complexType>
-      <complexType name="resource_root" mixed="true">
+      <complexType name="opcserver_root" mixed="true">
         <sequence>
-          <element minOccurs="1" maxOccurs="unbounded" name="resource_response" type="tns:resource_response" />
+          <element minOccurs="1" maxOccurs="unbounded" name="opcserver_response" type="tns:opcserver_response" />
         </sequence>
       </complexType>
-      <element name="resource_root" type="tns:resource_root" />
+      <element name="opcserver_root" type="tns:opcserver_root" />
     </schema>
     <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface" xmlns="http://www.w3.org/2001/XMLSchema">
       <complexType name="printer_group">
@@ -83,26 +79,30 @@
       <element name="zone_root" type="tns:zone_root" />
     </schema>
     <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface" xmlns="http://www.w3.org/2001/XMLSchema">
-      <complexType name="wraptype">
+      <complexType name="usersetup">
         <sequence>
-          <element minOccurs="1" maxOccurs="1" default="0" name="wraptype_entryno" type="int" />
-          <element minOccurs="1" maxOccurs="1" name="wraptype_desc" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="user_id" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="user_name" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="user_distno" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="user_pickall" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="user_zone" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="user_printergroup" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="user_opcserver" type="string" />
         </sequence>
       </complexType>
-      <complexType name="wraptype_response">
+      <complexType name="usersetup_response">
         <sequence>
           <element minOccurs="1" maxOccurs="1" name="status" type="string" />
           <element minOccurs="1" maxOccurs="1" name="status_text" type="string" />
-          <element minOccurs="1" maxOccurs="1" name="default_wraptype" type="string" />
-          <element minOccurs="1" maxOccurs="unbounded" name="wraptype" type="tns:wraptype" />
+          <element minOccurs="1" maxOccurs="unbounded" name="usersetup" type="tns:usersetup" />
         </sequence>
       </complexType>
-      <complexType name="wraptype_root" mixed="true">
+      <complexType name="usersetup_root" mixed="true">
         <sequence>
-          <element minOccurs="1" maxOccurs="unbounded" name="wraptype_response" type="tns:wraptype_response" />
+          <element minOccurs="1" maxOccurs="unbounded" name="usersetup_response" type="tns:usersetup_response" />
         </sequence>
       </complexType>
-      <element name="wraptype_root" type="tns:wraptype_root" />
+      <element name="usersetup_root" type="tns:usersetup_root" />
     </schema>
     <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface" xmlns="http://www.w3.org/2001/XMLSchema">
       <element name="CountPallet">
@@ -125,21 +125,21 @@
       <element name="GetResources">
         <complexType>
           <sequence>
-            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:resource_root" />
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:opcserver_root" />
           </sequence>
         </complexType>
       </element>
       <element name="GetResources_Result">
         <complexType>
           <sequence>
-            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:resource_root" />
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:opcserver_root" />
           </sequence>
         </complexType>
       </element>
       <element name="GetResourcesInfo">
         <complexType>
           <sequence>
-            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:resource_root" />
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:opcserver_root" />
             <element minOccurs="1" maxOccurs="1" name="resourceNo" type="string" />
           </sequence>
         </complexType>
@@ -147,7 +147,7 @@
       <element name="GetResourcesInfo_Result">
         <complexType>
           <sequence>
-            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:resource_root" />
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:opcserver_root" />
           </sequence>
         </complexType>
       </element>
@@ -184,7 +184,7 @@
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:default_root" />
             <element minOccurs="1" maxOccurs="1" name="resourceNo" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="pIN" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="pIN" type="string" />
           </sequence>
         </complexType>
       </element>
@@ -233,7 +233,7 @@
       <element name="WrapPallet">
         <complexType>
           <sequence>
-            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:wraptype_root" />
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:usersetup_root" />
             <element minOccurs="1" maxOccurs="1" name="resourceNo" type="string" />
             <element minOccurs="1" maxOccurs="1" name="palletID" type="string" />
             <element minOccurs="1" maxOccurs="1" name="wrapStartTxt" type="string" />
@@ -245,7 +245,57 @@
       <element name="WrapPallet_Result">
         <complexType>
           <sequence>
-            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:wraptype_root" />
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:usersetup_root" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreatePallet">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="scannerResponseDefault" type="tns:default_root" />
+            <element minOccurs="1" maxOccurs="1" name="_PalletID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="_Barcode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="_Quantity" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreatePallet_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="scannerResponseDefault" type="tns:default_root" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="AddPalletToPush">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:default_root" />
+            <element minOccurs="1" maxOccurs="1" name="resourceNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="palletID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="newBin" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="AddPalletToPush_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:default_root" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RemovePalletFromPush">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:default_root" />
+            <element minOccurs="1" maxOccurs="1" name="resourceNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="palletID" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RemovePalletFromPush_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:default_root" />
           </sequence>
         </complexType>
       </element>
@@ -305,6 +355,24 @@
   <message name="WrapPallet_Result">
     <part name="parameters" element="tns:WrapPallet_Result" />
   </message>
+  <message name="CreatePallet">
+    <part name="parameters" element="tns:CreatePallet" />
+  </message>
+  <message name="CreatePallet_Result">
+    <part name="parameters" element="tns:CreatePallet_Result" />
+  </message>
+  <message name="AddPalletToPush">
+    <part name="parameters" element="tns:AddPalletToPush" />
+  </message>
+  <message name="AddPalletToPush_Result">
+    <part name="parameters" element="tns:AddPalletToPush_Result" />
+  </message>
+  <message name="RemovePalletFromPush">
+    <part name="parameters" element="tns:RemovePalletFromPush" />
+  </message>
+  <message name="RemovePalletFromPush_Result">
+    <part name="parameters" element="tns:RemovePalletFromPush_Result" />
+  </message>
   <portType name="ScannerInterface_Port">
     <operation name="CountPallet">
       <input name="CountPallet" message="tns:CountPallet" />
@@ -341,6 +409,18 @@
     <operation name="WrapPallet">
       <input name="WrapPallet" message="tns:WrapPallet" />
       <output name="WrapPallet_Result" message="tns:WrapPallet_Result" />
+    </operation>
+    <operation name="CreatePallet">
+      <input name="CreatePallet" message="tns:CreatePallet" />
+      <output name="CreatePallet_Result" message="tns:CreatePallet_Result" />
+    </operation>
+    <operation name="AddPalletToPush">
+      <input name="AddPalletToPush" message="tns:AddPalletToPush" />
+      <output name="AddPalletToPush_Result" message="tns:AddPalletToPush_Result" />
+    </operation>
+    <operation name="RemovePalletFromPush">
+      <input name="RemovePalletFromPush" message="tns:RemovePalletFromPush" />
+      <output name="RemovePalletFromPush_Result" message="tns:RemovePalletFromPush_Result" />
     </operation>
   </portType>
   <binding name="ScannerInterface_Binding" type="tns:ScannerInterface_Port">
@@ -426,10 +506,37 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="CreatePallet">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface:CreatePallet" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreatePallet">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreatePallet_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="AddPalletToPush">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface:AddPalletToPush" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="AddPalletToPush">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="AddPalletToPush_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="RemovePalletFromPush">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface:RemovePalletFromPush" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="RemovePalletFromPush">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="RemovePalletFromPush_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
   </binding>
   <service name="ScannerInterface">
     <port name="ScannerInterface_Port" binding="tns:ScannerInterface_Binding">
-      <address location="http://10.100.3.63:7147/OPC/WS/OPC/Codeunit/ScannerInterface" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <address location="http://172.23.178.75:7047/DynamicsNAV80/WS/CRONUS%20Danmark/Codeunit/ScannerInterface" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
     </port>
   </service>
 </definitions>

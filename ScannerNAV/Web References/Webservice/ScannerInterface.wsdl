@@ -16,25 +16,29 @@
       <element name="default_root" type="tns:default_root" />
     </schema>
     <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface" xmlns="http://www.w3.org/2001/XMLSchema">
-      <complexType name="opcserver">
+      <complexType name="resource">
         <sequence>
-          <element minOccurs="1" maxOccurs="1" name="server_code" type="string" />
-          <element minOccurs="1" maxOccurs="1" name="server_desc" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="no" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="name" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="distno" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="pickall" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="zone" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="printergroup" type="string" />
         </sequence>
       </complexType>
-      <complexType name="opcserver_response">
+      <complexType name="resource_response">
         <sequence>
           <element minOccurs="1" maxOccurs="1" name="status" type="string" />
           <element minOccurs="1" maxOccurs="1" name="status_text" type="string" />
-          <element minOccurs="1" maxOccurs="unbounded" name="opcserver" type="tns:opcserver" />
+          <element minOccurs="1" maxOccurs="unbounded" name="resource" type="tns:resource" />
         </sequence>
       </complexType>
-      <complexType name="opcserver_root" mixed="true">
+      <complexType name="resource_root" mixed="true">
         <sequence>
-          <element minOccurs="1" maxOccurs="unbounded" name="opcserver_response" type="tns:opcserver_response" />
+          <element minOccurs="1" maxOccurs="unbounded" name="resource_response" type="tns:resource_response" />
         </sequence>
       </complexType>
-      <element name="opcserver_root" type="tns:opcserver_root" />
+      <element name="resource_root" type="tns:resource_root" />
     </schema>
     <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface" xmlns="http://www.w3.org/2001/XMLSchema">
       <complexType name="printer_group">
@@ -79,30 +83,26 @@
       <element name="zone_root" type="tns:zone_root" />
     </schema>
     <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface" xmlns="http://www.w3.org/2001/XMLSchema">
-      <complexType name="usersetup">
+      <complexType name="wraptype">
         <sequence>
-          <element minOccurs="1" maxOccurs="1" name="user_id" type="string" />
-          <element minOccurs="1" maxOccurs="1" name="user_name" type="string" />
-          <element minOccurs="1" maxOccurs="1" name="user_distno" type="string" />
-          <element minOccurs="1" maxOccurs="1" name="user_pickall" type="string" />
-          <element minOccurs="1" maxOccurs="1" name="user_zone" type="string" />
-          <element minOccurs="1" maxOccurs="1" name="user_printergroup" type="string" />
-          <element minOccurs="1" maxOccurs="1" name="user_opcserver" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="wraptype_entryno" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="wraptype_desc" type="string" />
         </sequence>
       </complexType>
-      <complexType name="usersetup_response">
+      <complexType name="wraptype_response">
         <sequence>
           <element minOccurs="1" maxOccurs="1" name="status" type="string" />
           <element minOccurs="1" maxOccurs="1" name="status_text" type="string" />
-          <element minOccurs="1" maxOccurs="unbounded" name="usersetup" type="tns:usersetup" />
+          <element minOccurs="1" maxOccurs="1" name="default_wraptype" type="string" />
+          <element minOccurs="1" maxOccurs="unbounded" name="wraptype" type="tns:wraptype" />
         </sequence>
       </complexType>
-      <complexType name="usersetup_root" mixed="true">
+      <complexType name="wraptype_root" mixed="true">
         <sequence>
-          <element minOccurs="1" maxOccurs="unbounded" name="usersetup_response" type="tns:usersetup_response" />
+          <element minOccurs="1" maxOccurs="unbounded" name="wraptype_response" type="tns:wraptype_response" />
         </sequence>
       </complexType>
-      <element name="usersetup_root" type="tns:usersetup_root" />
+      <element name="wraptype_root" type="tns:wraptype_root" />
     </schema>
     <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface" xmlns="http://www.w3.org/2001/XMLSchema">
       <element name="CountPallet">
@@ -125,21 +125,21 @@
       <element name="GetResources">
         <complexType>
           <sequence>
-            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:opcserver_root" />
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:resource_root" />
           </sequence>
         </complexType>
       </element>
       <element name="GetResources_Result">
         <complexType>
           <sequence>
-            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:opcserver_root" />
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:resource_root" />
           </sequence>
         </complexType>
       </element>
       <element name="GetResourcesInfo">
         <complexType>
           <sequence>
-            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:opcserver_root" />
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:resource_root" />
             <element minOccurs="1" maxOccurs="1" name="resourceNo" type="string" />
           </sequence>
         </complexType>
@@ -147,7 +147,7 @@
       <element name="GetResourcesInfo_Result">
         <complexType>
           <sequence>
-            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:opcserver_root" />
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:resource_root" />
           </sequence>
         </complexType>
       </element>
@@ -184,7 +184,7 @@
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:default_root" />
             <element minOccurs="1" maxOccurs="1" name="resourceNo" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="pIN" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="pIN" type="int" />
           </sequence>
         </complexType>
       </element>
@@ -233,7 +233,7 @@
       <element name="WrapPallet">
         <complexType>
           <sequence>
-            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:usersetup_root" />
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:wraptype_root" />
             <element minOccurs="1" maxOccurs="1" name="resourceNo" type="string" />
             <element minOccurs="1" maxOccurs="1" name="palletID" type="string" />
             <element minOccurs="1" maxOccurs="1" name="wrapStartTxt" type="string" />
@@ -245,7 +245,7 @@
       <element name="WrapPallet_Result">
         <complexType>
           <sequence>
-            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:usersetup_root" />
+            <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:wraptype_root" />
           </sequence>
         </complexType>
       </element>
@@ -288,7 +288,7 @@
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="responseXML" type="tns:default_root" />
             <element minOccurs="1" maxOccurs="1" name="resourceNo" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="palletID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="pushBin" type="string" />
           </sequence>
         </complexType>
       </element>
@@ -536,7 +536,7 @@
   </binding>
   <service name="ScannerInterface">
     <port name="ScannerInterface_Port" binding="tns:ScannerInterface_Binding">
-      <address location="http://172.23.178.75:7047/DynamicsNAV80/WS/CRONUS%20Danmark/Codeunit/ScannerInterface" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <address location="http://10.100.3.26:7147/OPC/WS/OPC/Codeunit/ScannerInterface" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
     </port>
   </service>
 </definitions>

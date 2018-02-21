@@ -169,8 +169,14 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Web References\Webservice\resource_root1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\Webservice\Scannerinterface.wsdl" />
     <None Include="Web References\Webservice\usersetup_root.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Webservice\wraptype_root1.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\Webservice\zone_root.datasource">
@@ -197,10 +203,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://172.23.178.75:7047/DynamicsNAV80/WS/CRONUS%2520Danmark/Codeunit/ScannerInterface">
+    <WebReferenceUrl Include="http://10.100.3.26:7147/OPC/WS/OPC/Codeunit/ScannerInterface">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\Webservice\</RelPath>
-      <UpdateFromURL>http://172.23.178.75:7047/DynamicsNAV80/WS/CRONUS%2520Danmark/Codeunit/ScannerInterface</UpdateFromURL>
+      <UpdateFromURL>http://10.100.3.26:7147/OPC/WS/OPC/Codeunit/ScannerInterface</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

@@ -22,7 +22,7 @@ namespace ScannerNAV
             {
                 Helper.SetWSUser("PSH-NAV2015\\Administrator");
                 Helper.SetWSPasword("TanHus4d");
-                Helper.SetWSUrl("http://10.100.3.63:7147/OPC/WS/OPC/Codeunit/ScannerInterface");
+                Helper.SetWSUrl("http://10.100.3.26:7147/OPC/WS/OPC/Codeunit/ScannerInterface");
             }
 
             // Set our view from the "main" layout resource
@@ -39,15 +39,8 @@ namespace ScannerNAV
         {
             try
             {
-                if (Helper.GetRescourceNo() == null)
-                {
-                    Intent intent = new Intent(this, typeof(LogInActivity));
-                    StartActivityForResult(intent, 1);
-                }
-                else
-                {
-                    StartActivity(typeof(MenuActivity));
-                }
+                Intent intent = new Intent(this, typeof(LogInActivity));
+                StartActivityForResult(intent, 1);
             }
             catch (Exception ex)
             {
@@ -65,9 +58,9 @@ namespace ScannerNAV
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
-            if(requestCode == 1)
+            if((requestCode == 1) & (resultCode == Result.Ok))
             {
-                btnLogin.PerformClick();
+                StartActivity(typeof(MenuActivity));
             }
         }
     }

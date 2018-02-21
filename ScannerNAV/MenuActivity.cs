@@ -113,5 +113,27 @@ namespace ScannerNAV
             base.OnActivityResult(requestCode, resultCode, data);
             tvStatus.Text = Helper.GetStatus();
         }
+
+        override public void OnBackPressed()
+        {
+            // do something here and don't write super.onBackPressed()
+            AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+            dialog.SetTitle("Log off");
+            dialog.SetMessage("Do you want to log off?");
+            dialog.SetPositiveButton("OK", OkAction);
+            dialog.SetNegativeButton("Cancel", CancelAction);
+            var myCustomDialog = dialog.Create();
+            myCustomDialog.Show();
+        }
+
+        private void OkAction(object sender, DialogClickEventArgs e)
+        {
+            base.OnBackPressed();
+        }
+
+        private void CancelAction(object sender, DialogClickEventArgs e)
+        {
+            //Do nothing
+        }
     }
 }

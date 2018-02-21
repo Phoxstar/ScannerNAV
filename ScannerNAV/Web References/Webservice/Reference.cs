@@ -47,11 +47,17 @@ namespace ScannerNAV.Webservice {
         
         private System.Threading.SendOrPostCallback WrapPalletOperationCompleted;
         
+        private System.Threading.SendOrPostCallback CreatePalletOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AddPalletToPushOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback RemovePalletFromPushOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
         public ScannerInterface() {
-            this.Url = "http://10.100.3.63:7147/OPC/WS/OPC/Codeunit/ScannerInterface";
+            this.Url = "http://10.100.3.26:7147/OPC/WS/OPC/Codeunit/ScannerInterface";
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
@@ -111,6 +117,15 @@ namespace ScannerNAV.Webservice {
         
         /// <remarks/>
         public event WrapPalletCompletedEventHandler WrapPalletCompleted;
+        
+        /// <remarks/>
+        public event CreatePalletCompletedEventHandler CreatePalletCompleted;
+        
+        /// <remarks/>
+        public event AddPalletToPushCompletedEventHandler AddPalletToPushCompleted;
+        
+        /// <remarks/>
+        public event RemovePalletFromPushCompletedEventHandler RemovePalletFromPushCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/ScannerInterface:CountPallet", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface", ResponseElementName="CountPallet_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -410,6 +425,109 @@ namespace ScannerNAV.Webservice {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/ScannerInterface:CreatePallet", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface", ResponseElementName="CreatePallet_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void CreatePallet(ref default_root scannerResponseDefault, string _PalletID, string _Barcode, decimal _Quantity) {
+            object[] results = this.Invoke("CreatePallet", new object[] {
+                        scannerResponseDefault,
+                        _PalletID,
+                        _Barcode,
+                        _Quantity});
+            scannerResponseDefault = ((default_root)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CreatePalletAsync(default_root scannerResponseDefault, string _PalletID, string _Barcode, decimal _Quantity) {
+            this.CreatePalletAsync(scannerResponseDefault, _PalletID, _Barcode, _Quantity, null);
+        }
+        
+        /// <remarks/>
+        public void CreatePalletAsync(default_root scannerResponseDefault, string _PalletID, string _Barcode, decimal _Quantity, object userState) {
+            if ((this.CreatePalletOperationCompleted == null)) {
+                this.CreatePalletOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCreatePalletOperationCompleted);
+            }
+            this.InvokeAsync("CreatePallet", new object[] {
+                        scannerResponseDefault,
+                        _PalletID,
+                        _Barcode,
+                        _Quantity}, this.CreatePalletOperationCompleted, userState);
+        }
+        
+        private void OnCreatePalletOperationCompleted(object arg) {
+            if ((this.CreatePalletCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CreatePalletCompleted(this, new CreatePalletCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/ScannerInterface:AddPalletToPush", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface", ResponseElementName="AddPalletToPush_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AddPalletToPush(ref default_root responseXML, string resourceNo, string palletID, string newBin) {
+            object[] results = this.Invoke("AddPalletToPush", new object[] {
+                        responseXML,
+                        resourceNo,
+                        palletID,
+                        newBin});
+            responseXML = ((default_root)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void AddPalletToPushAsync(default_root responseXML, string resourceNo, string palletID, string newBin) {
+            this.AddPalletToPushAsync(responseXML, resourceNo, palletID, newBin, null);
+        }
+        
+        /// <remarks/>
+        public void AddPalletToPushAsync(default_root responseXML, string resourceNo, string palletID, string newBin, object userState) {
+            if ((this.AddPalletToPushOperationCompleted == null)) {
+                this.AddPalletToPushOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddPalletToPushOperationCompleted);
+            }
+            this.InvokeAsync("AddPalletToPush", new object[] {
+                        responseXML,
+                        resourceNo,
+                        palletID,
+                        newBin}, this.AddPalletToPushOperationCompleted, userState);
+        }
+        
+        private void OnAddPalletToPushOperationCompleted(object arg) {
+            if ((this.AddPalletToPushCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AddPalletToPushCompleted(this, new AddPalletToPushCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/ScannerInterface:RemovePalletFromPush", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface", ResponseElementName="RemovePalletFromPush_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/ScannerInterface", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void RemovePalletFromPush(ref default_root responseXML, string resourceNo, string pushBin) {
+            object[] results = this.Invoke("RemovePalletFromPush", new object[] {
+                        responseXML,
+                        resourceNo,
+                        pushBin});
+            responseXML = ((default_root)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void RemovePalletFromPushAsync(default_root responseXML, string resourceNo, string pushBin) {
+            this.RemovePalletFromPushAsync(responseXML, resourceNo, pushBin, null);
+        }
+        
+        /// <remarks/>
+        public void RemovePalletFromPushAsync(default_root responseXML, string resourceNo, string pushBin, object userState) {
+            if ((this.RemovePalletFromPushOperationCompleted == null)) {
+                this.RemovePalletFromPushOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRemovePalletFromPushOperationCompleted);
+            }
+            this.InvokeAsync("RemovePalletFromPush", new object[] {
+                        responseXML,
+                        resourceNo,
+                        pushBin}, this.RemovePalletFromPushOperationCompleted, userState);
+        }
+        
+        private void OnRemovePalletFromPushOperationCompleted(object arg) {
+            if ((this.RemovePalletFromPushCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.RemovePalletFromPushCompleted(this, new RemovePalletFromPushCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -429,7 +547,7 @@ namespace ScannerNAV.Webservice {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -464,7 +582,7 @@ namespace ScannerNAV.Webservice {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -497,7 +615,7 @@ namespace ScannerNAV.Webservice {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -534,7 +652,7 @@ namespace ScannerNAV.Webservice {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -592,7 +710,7 @@ namespace ScannerNAV.Webservice {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -627,7 +745,7 @@ namespace ScannerNAV.Webservice {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -660,7 +778,7 @@ namespace ScannerNAV.Webservice {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -706,7 +824,7 @@ namespace ScannerNAV.Webservice {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -741,7 +859,7 @@ namespace ScannerNAV.Webservice {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -774,7 +892,7 @@ namespace ScannerNAV.Webservice {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -820,7 +938,7 @@ namespace ScannerNAV.Webservice {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -855,7 +973,7 @@ namespace ScannerNAV.Webservice {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -936,7 +1054,7 @@ namespace ScannerNAV.Webservice {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -982,7 +1100,7 @@ namespace ScannerNAV.Webservice {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1246,6 +1364,84 @@ namespace ScannerNAV.Webservice {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((wraptype_root)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    public delegate void CreatePalletCompletedEventHandler(object sender, CreatePalletCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CreatePalletCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CreatePalletCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public default_root scannerResponseDefault {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((default_root)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    public delegate void AddPalletToPushCompletedEventHandler(object sender, AddPalletToPushCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AddPalletToPushCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AddPalletToPushCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public default_root responseXML {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((default_root)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    public delegate void RemovePalletFromPushCompletedEventHandler(object sender, RemovePalletFromPushCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class RemovePalletFromPushCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal RemovePalletFromPushCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public default_root responseXML {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((default_root)(this.results[0]));
             }
         }
     }
